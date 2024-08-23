@@ -1,5 +1,6 @@
 # Setup
 
+-   [pnpm](https://pnpm.io/) is used as the package manager 
 -   Run `pnpm i`
 -   Run `ionic s`
 -   Login with admin account from api
