@@ -1,0 +1,11 @@
+ion-content > div {
+    margin: auto;
+    width: 600px;
+    transition: all ease-out 500ms;
+}
+
+@media only screen and (max-width: 750px) {
+    ion-content > div {
+        width: 100%;
+    }
+}

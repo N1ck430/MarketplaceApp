@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{ 'SUBSCRIPTION.ADD_SUBSCRIPTION' | translate }}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="close()" [size]="'large'">
+                <fa-icon [icon]="'times'"></fa-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <div class="h-full">
+        <form *ngIf="formGroup" [formGroup]="formGroup" (submit)="onSubmit(formGroup.value)" class="flex-grow">
+            <c-select
+                [_formGroup_]="formGroup"
+                _formControlName_="softwareType"
+                [_items_]="softwares"
+                _labelText_="SUBSCRIPTION.SOFTWARE_NAME"
+                [_mandatory_]="true"
+                [_multiple_]="false"
+                (onChange)="subscriptionTypeChange()"
+            ></c-select>
+            <c-select
+                [_formGroup_]="formGroup"
+                _formControlName_="subscriptionType"
+                [_items_]="subscriptionTypes"
+                _labelText_="SUBSCRIPTION.SUBSCRIPTION_TYPE"
+                [_mandatory_]="true"
+                [_multiple_]="false"
+                [_disabled_]="subscriptionTypes.length === 0"
+            ></c-select>
+        </form>
+        <ion-button [disabled]="!formGroup?.valid" type="submit" expand="block" (click)="onSubmit(formGroup.value)">
+            <fa-icon [icon]="'check'" class="mr-1"></fa-icon>
+            {{ 'GENERAL.SUBMIT' | translate }}
+        </ion-button>
+    </div>
+</ion-content>

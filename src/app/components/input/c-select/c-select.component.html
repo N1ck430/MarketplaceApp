@@ -1,0 +1,14 @@
+<ion-item [formGroup]="_formGroup_">
+    <ion-select
+        [name]="_formControlName_"
+        [formControlName]="_formControlName_"
+        [multiple]="_multiple_"
+        [disabled]="_disabled_"
+        labelPlacement="floating"
+        interface="popover"
+        (ionChange)="change($event)"
+    >
+        <div slot="label">{{ _labelText_ | translate }}<ion-text *ngIf="_mandatory_" color="danger">*</ion-text></div>
+        <ion-select-option *ngFor="let item of _items_" [value]="item.value">{{ item.text }}</ion-select-option>
+    </ion-select>
+</ion-item>

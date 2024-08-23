@@ -1,0 +1,38 @@
+<ion-app>
+    <ion-split-pane contentId="main-content">
+        <ion-menu contentId="main-content" type="overlay" [class.hidden]="!appPages.length">
+            <ion-content>
+                <ion-list>
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+                        <ion-item *ngIf="!p.pages" routerDirection="root" [routerLink]="[p.path]" lines="none" detail="false" routerLinkActive="selected">
+                            <fa-icon *ngIf="p.icon" [icon]="p.icon" class="mr-1"></fa-icon>
+                            <ion-label>{{ p.title | translate }}</ion-label>
+                        </ion-item>
+                        <ion-accordion-group *ngIf="p.pages">
+                            <ion-accordion>
+                                <ion-item slot="header">
+                                    <fa-icon *ngIf="p.icon" [icon]="p.icon" class="mr-1"></fa-icon> <ion-label>{{ p.title | translate }}</ion-label></ion-item
+                                >
+                                <ion-item
+                                    *ngFor="let subPage of p.pages"
+                                    routerDirection="root"
+                                    [routerLink]="[p.path + subPage.path]"
+                                    lines="none"
+                                    detail="false"
+                                    routerLinkActive="selected"
+                                    slot="content"
+                                >
+                                    <fa-icon *ngIf="subPage.icon" [icon]="subPage.icon" class="ml-8 mr-1"></fa-icon>
+                                    <ion-label>{{ subPage.title | translate }}</ion-label>
+                                </ion-item>
+                            </ion-accordion>
+                        </ion-accordion-group>
+                    </ion-menu-toggle>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content">
+            <c-header [_text_]="headerTitle" [_icon_]="headerIcon" *ngIf="headerTitle !== undefined"></c-header>
+        </ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

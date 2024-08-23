@@ -1,0 +1,10 @@
+<form [formGroup]="formGroup" (submit)="register(formGroup.value)">
+    <c-input [_formGroup_]="formGroup" _formControlName_="username" _labelText_="USER.USER_NAME" [_mandatory_]="true"></c-input>
+    <c-input [_formGroup_]="formGroup" _formControlName_="email" _labelText_="USER.EMAIL" _type_="email" [_mandatory_]="true"></c-input>
+    <c-input [_formGroup_]="formGroup" _formControlName_="password" _labelText_="USER.PASSWORD" _type_="password" [_mandatory_]="true"></c-input>
+    <c-input [_formGroup_]="formGroup" _formControlName_="confirmPassword" _labelText_="USER.CONFIRM_PASSWORD" _type_="password" [_mandatory_]="true"></c-input>
+    <ion-button [disabled]="!formGroup.valid" type="submit" expand="full">
+        <fa-icon [icon]="'user-astronaut'" class="mr-1"></fa-icon>
+        {{ 'USER.REGISTER' | translate }}
+    </ion-button>
+</form>

@@ -1,0 +1,15 @@
+<form *ngIf="formGroup && formControls" [formGroup]="formGroup" (submit)="onSubmit(formGroup.value)" class="flex-grow">
+    <c-input
+        *ngFor="let formControl of formControls"
+        [_formGroup_]="formGroup"
+        [_formControlName_]="formControl.formControl"
+        [_labelText_]="formControl.labelText"
+        [_type_]="formControl.type"
+        [_mandatory_]="formControl.mandatory"
+        [_readonly_]="formControl.readonly"
+        [_disabled_]="formControl.disabled"
+        (onChange)="onChange($event)"
+    ></c-input>
+</form>
+
+<ng-content></ng-content>

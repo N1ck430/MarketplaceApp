@@ -1,0 +1,24 @@
+<div *ngIf="userInfo">
+    <ion-button id="user-info-popup" fill="clear" color="dark" expand="full">
+        <span class="button-inner">
+            <app-profile-picture [userId]="userInfo.userId" class="mr-2"></app-profile-picture>
+            {{ userInfo.username }}
+        </span>
+    </ion-button>
+    <ion-popover trigger="user-info-popup" triggerAction="click">
+        <ng-template>
+            <ion-content class="ion-padding">
+                <ion-button (click)="logout()" expand="block" fill="clear">
+                    <fa-icon [icon]="'right-from-bracket'" class="mr-1"></fa-icon>
+                    {{ 'USER.LOGOUT' | translate }}
+                </ion-button>
+            </ion-content>
+        </ng-template>
+    </ion-popover>
+</div>
+<div *ngIf="!userInfo">
+    <ion-button (click)="login()">
+        <fa-icon [icon]="'right-to-bracket'" class="mr-1"></fa-icon>
+        {{ 'USER.LOGIN' | translate }}
+    </ion-button>
+</div>

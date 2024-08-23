@@ -1,0 +1,9 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./out-tsc/spec",
+        "typeRoots": ["node_modules/@types", "src/@types", "tests/unit/@types"]
+    },
+    "files": ["src/test.ts", "src/zone-flags.ts", "src/polyfills.ts"],
+    "include": ["src/**/*.spec.ts", "src/**/*.ts", "src/**/*.d.ts", "tests/unit/**/*.ts", "tests/unit/**/*.d.ts"]
+}

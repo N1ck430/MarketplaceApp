@@ -1,0 +1,28 @@
+<ion-content>
+    <ion-text>
+        <h1 class="m-5 text-center">{{ 'GENERAL.TITLE' | translate }}</h1>
+    </ion-text>
+
+    <div>
+        <ion-segment [value]="getPath()" swipeGesture="false">
+            <ion-segment-button (click)="navigate('/user/login')" value="/user/login" routerLink="/user/login">
+                {{ 'USER.LOGIN' | translate }}
+            </ion-segment-button>
+            <ion-segment-button (click)="navigate('/user/register')" value="/user/register" routerLink="/user/register">
+                {{ 'USER.REGISTER' | translate }}
+            </ion-segment-button>
+        </ion-segment>
+        <swiper #swiper id="swiper" [config]="{ allowTouchMove: false }">
+            <ng-template swiperSlide>
+                <app-login (forgotPasswordCallback)="forgotPassword()"></app-login>
+            </ng-template>
+            <ng-template swiperSlide>
+                <app-register></app-register>
+            </ng-template>
+            <ng-template swiperSlide>
+                <app-confirm-email *ngIf="getPath().includes('/confirm-email')"></app-confirm-email>
+                <app-forgot-password *ngIf="getPath().includes('/forgot-password')"></app-forgot-password>
+            </ng-template>
+        </swiper>
+    </div>
+</ion-content>

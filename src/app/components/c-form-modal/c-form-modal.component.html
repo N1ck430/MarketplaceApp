@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{ headerTitle | translate }}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="close()" [size]="'large'">
+                <fa-icon [icon]="'times'"></fa-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <div class="h-full">
+        <c-form [formGroup]="formGroup" [baseTranslateKey]="baseTranslateKey" class="flex h-full flex-col">
+            <ion-button [disabled]="!formGroup.valid" type="submit" expand="block" (click)="submit(formGroup.value)">
+                <fa-icon [icon]="'check'" class="mr-1"></fa-icon>
+                {{ 'GENERAL.SUBMIT' | translate }}
+            </ion-button>
+        </c-form>
+    </div>
+</ion-content>

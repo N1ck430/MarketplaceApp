@@ -1,0 +1,16 @@
+<c-form *ngIf="formGroup" [formGroup]="formGroup" baseTranslateKey="SOFTWARE" (onInputChange)="inputChange()"></c-form>
+<ion-header>
+    <ion-toolbar>
+        <ion-title> {{ 'SOFTWARE.SUBSCRIPTION_TYPE.SUBSCRIPTION_TYPES' | translate }} </ion-title>
+    </ion-toolbar>
+</ion-header>
+<c-list
+    [dataSource]="dataSource"
+    [displayedColumns]="displayedColumns"
+    [headerButton]="headerButton"
+    [itemButton]="itemButton"
+    [showPaginator]="false"
+    (onHeaderButtonClick)="openAddSubscriptionTypeModal()"
+    (onItemButtonClick)="deleteSubscriptionType($event)"
+    (onRowClick)="openEditSubscriptionTypeModal($event)"
+></c-list>

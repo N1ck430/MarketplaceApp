@@ -1,0 +1,96 @@
+{
+    "root": true,
+    "parserOptions": {
+        "ecmaVersion": 2017
+    },
+    "env": {
+        "es6": true
+    },
+    "overrides": [
+        {
+            "files": ["*.ts"],
+            "parserOptions": {
+                "project": ["tsconfig.app.json", "tsconfig.spec.json", "tests/e2e/tsconfig.json"],
+                "createDefaultProgram": true
+            },
+            "extends": [
+                "plugin:@angular-eslint/recommended",
+                // This is required if you use inline templates in Components
+                "plugin:@angular-eslint/template/process-inline-templates"
+            ],
+            "plugins": ["unused-imports", "@typescript-eslint"],
+            "rules": {
+                /**
+                 * Any TypeScript source code (NOT TEMPLATE) related rules you wish to use/reconfigure over and above the
+                 * recommended set provided by the @angular-eslint project would go here.
+                 */
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "type": "attribute",
+                        "prefix": "aeins",
+                        "style": "camelCase"
+                    }
+                ],
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "type": "element",
+                        "prefix": "aeins",
+                        "style": "kebab-case"
+                    }
+                ],
+                "@typescript-eslint/naming-convention": [
+                    "error",
+                    {
+                        "selector": "memberLike",
+                        "modifiers": ["private"],
+                        "format": ["camelCase"],
+                        "leadingUnderscore": "require"
+                    }
+                ],
+                "indent": [
+                    "error",
+                    4,
+                    {
+                        "SwitchCase": 1,
+                        "offsetTernaryExpressions": true,
+                        "ignoredNodes": ["ConditionalExpression *"]
+                    }
+                ],
+                "eqeqeq": ["error", "always"],
+                "no-trailing-spaces": ["error"],
+                "no-multiple-empty-lines": [
+                    "error",
+                    {
+                        "max": 1,
+                        "maxBOF": 0,
+                        "maxEOF": 0
+                    }
+                ],
+                "no-multi-spaces": ["error"],
+                "func-call-spacing": ["error", "never"],
+                "comma-spacing": ["error", { "before": false, "after": true }],
+                "space-in-parens": ["error", "never"],
+                "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+                "unused-imports/no-unused-imports": ["error"],
+                "no-unused-vars": "off",
+                "@typescript-eslint/no-unused-vars": ["error", { "args": "after-used" }],
+                "curly": "error"
+            }
+        },
+        {
+            "files": ["*.html"],
+            "extends": ["plugin:@angular-eslint/template/recommended"],
+            "rules": {
+                "@angular-eslint/template/attributes-order": [
+                    "error",
+                    {
+                        "alphabetical": false,
+                        "order": ["ATTRIBUTE_BINDING", "INPUT_BINDING", "OUTPUT_BINDING", "TWO_WAY_BINDING", "TEMPLATE_REFERENCE", "STRUCTURAL_DIRECTIVE"]
+                    }
+                ]
+            }
+        }
+    ]
+}

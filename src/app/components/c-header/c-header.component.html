@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            <fa-icon *ngIf="_icon_" [icon]="_icon_" class="mr-1"></fa-icon>
+            {{ _text_ | translate }}</ion-title
+        >
+        <ion-buttons [collapse]="true" slot="end">
+            <app-user-info></app-user-info>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>

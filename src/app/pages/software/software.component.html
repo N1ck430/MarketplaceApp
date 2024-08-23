@@ -1,0 +1,12 @@
+<c-list
+    [dataSource]="dataSource"
+    [displayedColumns]="displayedColumns"
+    [entryCount]="entryCount"
+    [headerButton]="headerButton"
+    [itemButton]="itemButton"
+    (onAnnounceSortChange)="announceSortChange($event)"
+    (onPageChange)="onPageChange($event)"
+    (onRowClick)="gotToSoftwareDetails($event)"
+    (onHeaderButtonClick)="openAddModal()"
+    (onItemButtonClick)="deleteSoftware($event)"
+></c-list>

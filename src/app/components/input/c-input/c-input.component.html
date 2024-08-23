@@ -1,0 +1,13 @@
+<ion-item [formGroup]="_formGroup_">
+    <ion-input
+        [name]="_formControlName_"
+        [formControlName]="_formControlName_"
+        [type]="_type_"
+        [readonly]="_readonly_"
+        [disabled]="_disabled_"
+        labelPlacement="floating"
+        (ionChange)="change($event)"
+    >
+        <div slot="label">{{ _labelText_ | translate }}<ion-text *ngIf="_mandatory_" color="danger">*</ion-text></div>
+    </ion-input>
+</ion-item>

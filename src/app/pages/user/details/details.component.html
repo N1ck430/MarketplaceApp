@@ -1,0 +1,44 @@
+<ion-progress-bar type="indeterminate" *ngIf="isLoading"></ion-progress-bar>
+<div *ngIf="!isLoading && userInfo">
+    <ion-item>
+        <div class="flex w-full">
+            <ion-item class="w-full">
+                <app-profile-picture class="my-1 mr-2" [userId]="userInfo.userId"></app-profile-picture>
+                <ion-label>{{ userInfo.username }}</ion-label>
+            </ion-item>
+            <ion-button
+                *ngIf="isAdmin && !isOwnAccount"
+                [disabled]="userInfo.isLockedOut"
+                size="large"
+                fill="outline"
+                color="danger"
+                class="flex-none"
+                (click)="confirmLockout()"
+            >
+                <fa-icon slot="icon-only" [icon]="'ban'"></fa-icon>
+            </ion-button>
+        </div>
+    </ion-item>
+    <ion-item>
+        <c-select
+            (onChange)="roleChange($event)"
+            _labelText_="USER.ROLES"
+            [_items_]="roleItems"
+            [_multiple_]="true"
+            [_formGroup_]="formGroup"
+            _formControlName_="roles"
+            _mandatory_="true"
+            _multiple_="true"
+            class="w-full"
+        >
+        </c-select>
+    </ion-item>
+
+    <c-list
+        [dataSource]="dataSource"
+        [displayedColumns]="displayedColumns"
+        [showPaginator]="false"
+        [headerButton]="headerButton"
+        (onHeaderButtonClick)="addSubscriptionModal()"
+    ></c-list>
+</div>

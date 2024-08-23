@@ -1,0 +1,87 @@
+{
+    "USER": {
+        "USERID": "UID",
+        "DETAILS": "Userdetails",
+        "USER_NAME": "Username",
+        "PASSWORD": "Password",
+        "CONFIRM_PASSWORD": "Confirm password",
+        "LOGIN": "Login",
+        "REGISTER": "Register",
+        "LOGGED_IN": "Successfully logged in",
+        "CONFIRM_EMAIL_HINT": "Please confirm your email",
+        "EMAIL": "Email",
+        "WRONG_USER_OR_PASSWORD": "Wrong username or password",
+        "EMAIL_CONFIRMED": "Email was confirmed",
+        "LOGOUT": "Logout",
+        "FORGOT_PASSWORD": "Forgot your password?",
+        "RESET_PASSWORD": "Reset password",
+        "RESET_PASSWORD_MAIL_HINT": "Please check your email",
+        "RESET_PASSWORD_SUCCESS": "Successfully reset your password",
+        "ROLES_REQUIRED": "The user has to have roles",
+        "ROLES_UPDATED": "Successfully updated roles",
+        "LOCKOUT_USER_TITLE": "Lockout user?",
+        "LOCKOUT_USER_MESSAGE": "Do you want to lockout the user '{{userName}}'?",
+        "LOCKOUT_USER_SUCCESS": "Successfully locked out the user",
+        "ROLES": "Roles",
+        "REGISTER_DATE": "Register-date"
+    },
+    "GENERAL": {
+        "TITLE": "Marketplace",
+        "ERROR": "An error occurred",
+        "NOT_FOUND": "Not found",
+        "NOT_FOUND_TEXT": "Could not find the content you are looking for",
+        "YES": "Yes",
+        "NO": "No",
+        "SUBMIT": "Submit",
+        "CHECK_INPUTS": "Please check your inputs",
+        "TIME_SPAN_FORMAT": "{{days}} Day(s) {{hours}} Hour(s) {{minutes}} Minute(s)",
+        "ADD": "Add"
+    },
+    "ADMIN": {
+        "ADMIN": "Admin",
+        "USER_MANAGEMENT": {
+            "USER_MANAGEMENT": "User management",
+            "SEARCH_USER_ERROR": "Error while searching users"
+        }
+    },
+    "SOFTWARE": {
+        "SOFTWARE": "Software",
+        "ID": "Id",
+        "NAME": "Name",
+        "SUBSCIPTION_TYPES": "Subscription-types",
+        "COULD_NOT_ADD": "Could not add software",
+        "SUCCESSFULLY_ADDED": "Successfully added software",
+        "ADD_SOFTWARE": "Add Software",
+        "DETAILS": "Software details",
+        "SUCCESSFULLY_UPDATED": "Successfully updated software",
+        "DELETE_TITLE": "Delete Software?",
+        "DELETE_MESSAGE": "Do you want to delete the software '{{name}}'?",
+        "DELETE_SUCCESS": "Successfully deleted software",
+        "ADD": "Add",
+        "SUBSCRIPTION_TYPE": {
+            "SUBSCRIPTION_TYPES": "Subscriptions",
+            "ID": "Id",
+            "NAME": "Name",
+            "LENGTH_IN_DAYS": "Length in days",
+            "SUCCESSFULLY_ADDED": "Successfully added subscription",
+            "COULD_NOT_ADD": "Could not add subscription",
+            "SOFTWARE_ID": "Software id",
+            "ADD_SUBSCRIPTION": "Add subscription",
+            "UPDATE_SUBSCRIPTION": "Update subscription",
+            "SUCCESSFULLY_UPDATED": "Successfully updated subscription",
+            "COULD_NOT_UPDATE": "Could not update subscription",
+            "DELETE_TITLE": "Delete Subscription?",
+            "DELETE_MESSAGE": "Do you want to delete the subscription '{{name}}'?",
+            "DELETE_SUCCESS": "Successfully deleted subscription"
+        }
+    },
+    "SUBSCRIPTION": {
+        "ADD_SUBSCRIPTION": "Add subscription",
+        "SOFTWARE_NAME": "Software name",
+        "SUBSCRIPTION_TYPE": "Subscription type",
+        "END_DATE": "End date",
+        "TIME_REMAINING": "Time remaining",
+        "SUCCESSFULLY_ADDED": "Successfully added subscription",
+        "COULD_NOT_ADD": "Could not add subscription"
+    }
+}

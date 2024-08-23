@@ -1,0 +1,9 @@
+{
+    "charset": "utf-8",
+    "endOfLine": "lf",
+    "useTabs": false,
+    "tabWidth": 4,
+    "printWidth": 160,
+    "singleQuote": true,
+    "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"]
+}

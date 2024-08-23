@@ -1,0 +1,8 @@
+<c-list
+    [dataSource]="dataSource"
+    [displayedColumns]="displayedColumns"
+    [entryCount]="entryCount"
+    (onAnnounceSortChange)="announceSortChange($event)"
+    (onPageChange)="onPageChange($event)"
+    (onRowClick)="gotToUserDetails($event)"
+></c-list>

@@ -1,0 +1,50 @@
+<div class="h-full">
+    <ion-progress-bar type="indeterminate" *ngIf="listLoading"></ion-progress-bar>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort (matSortChange)="announceSortChange($event)">
+        <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col.id">
+            <ng-container *ngIf="col.id === 'button'" matColumnDef="header-button">
+                <mat-header-cell *matHeaderCellDef>
+                    <ion-button (click)="headerButtonClick()" *ngIf="headerButton" [color]="headerButton.color">
+                        <fa-icon *ngIf="headerButton.icon" [icon]="headerButton.icon" [class.mr-1]="headerButton.translationKey"></fa-icon>
+                        <ng-container *ngIf="headerButton.translationKey">
+                            {{ headerButton.translationKey | translate }}
+                        </ng-container>
+                    </ion-button>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <ion-button (click)="itemButtonClick(element, $event)" *ngIf="itemButton" [color]="itemButton.color">
+                        <fa-icon *ngIf="itemButton.icon" [icon]="itemButton.icon" [class.mr-1]="itemButton.translationKey"></fa-icon>
+                        <ng-container *ngIf="itemButton.translationKey">
+                            {{ itemButton.translationKey | translate }}
+                        </ng-container>
+                    </ion-button>
+                </mat-cell>
+            </ng-container>
+            <ng-container *ngIf="col.sortValue && col.id !== 'button'">
+                <mat-header-cell *matHeaderCellDef [mat-sort-header]="col.sortValue">{{ col.textTranslationKey | translate }}</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{ element[col.id] }}</mat-cell>
+            </ng-container>
+            <ng-container *ngIf="!col.sortValue && col.id !== 'button'">
+                <mat-header-cell *matHeaderCellDef>{{ col.textTranslationKey | translate }}</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{ element[col.id] }}</mat-cell>
+            </ng-container>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumnIds"></mat-header-row>
+        <mat-row
+            *matRowDef="let row; columns: displayedColumnIds"
+            (click)="row._disabled ? $event.stopPropagation() : rowClick(row)"
+            mat-ripple
+            [matRippleDisabled]="row._disabled"
+            [class.opacity-50]="row._disabled"
+            [class.pointer-events-none]="row._disabled"
+        ></mat-row>
+    </table>
+    <mat-paginator
+        class="absolute bottom-0 w-full"
+        *ngIf="showPaginator"
+        [length]="entryCount"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="pageChange($event)"
+    ></mat-paginator>
+</div>

@@ -1,0 +1,28 @@
+{
+    "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
+    "overrides": [
+        {
+            "files": ["**/*.scss"],
+            "customSyntax": "postcss-scss"
+        }
+    ],
+    "rules": {
+        "indentation": 4,
+        "max-empty-lines": 1,
+        "declaration-empty-line-before": "never",
+        "declaration-block-semicolon-newline-after": "always",
+        "color-function-notation": "legacy",
+        "selector-pseudo-element-no-unknown": [
+            true,
+            {
+                "ignorePseudoElements": ["host", "ng-deep"]
+            }
+        ],
+        "selector-type-no-unknown": [
+            true,
+            {
+                "ignoreTypes": ["/(ion)-.*/", "fa-icon"]
+            }
+        ]
+    }
+}
